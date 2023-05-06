@@ -8,11 +8,11 @@ import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
-  // const [cv, setCv] = useState({});
+  const [cv, setCv] = useState({});
 
-  const [cv, setCv] = useState({
-    personalInfo: { firstName: '', lastName: '' },
-  });
+  // const [cv, setCv] = useState({
+  //   personalInfo: { firstName: '', lastName: '' },
+  // });
 
   const [section, setSection] = useState('Personal Info');
 
