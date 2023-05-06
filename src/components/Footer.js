@@ -4,7 +4,7 @@ import '../styles/Footer.css'
 
 function Footer() {
   return (
-    <footer className='copyright'>
+    <footer className='footer copyright'>
       <p>
         Copyright © 2023 sawfiz {' '}
         <a href="https://github.com/sawfiz" target="_blank" rel="noreferrer">

@@ -8,17 +8,32 @@ import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
-  const [section, setSection] = useState('Introduction')
+  // const [cv, setCv] = useState({});
 
+  const [cv, setCv] = useState({
+    personalInfo: { firstName: '', lastName: '' },
+  });
+
+  const [section, setSection] = useState('Personal Info');
+
+  function updateCV(sectionName, contentObj) {
+    setCv({ ...cv, [sectionName]: contentObj });
+  }
+
+  function generateCV() {
+    console.log('🚀 ~ file: App.js:17 ~ updateCV ~ cv:', cv);
+  }
 
   return (
     <div className="App">
-      <Header className='header'/>
-      <Header className='header'/>
-      <Sidebar className='sidebar' section={section} changeSection={setSection}/>
-      <Main className='main' section={section}/>
-      <Footer className='footer'/>
-      <Footer className='footer'/>
+      <Header />
+      <Sidebar
+        section={section}
+        changeSection={setSection}
+        generateCV={generateCV}
+      />
+      <Main cv={cv} section={section} updateCV={updateCV} />
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,30 @@
 import React from 'react';
+import PersonalInfo from './PersonalInfo';
 
-function Main({section}) {
+function Main({ cv, section, updateCV }) {
+  let heading = <h2>{section}</h2>;
+  let content;
+
+  switch (section) {
+    case 'Introduction':
+      content = (
+        <div>
+          <p>Fill out forms in each section.</p>
+          <p>Click on the Generate CV button to generate a CV.</p>
+        </div>
+      );
+      break;
+
+      case 'Personal Info':
+        content = <PersonalInfo cv={cv} updateCV={updateCV} />
+
+    default:
+      break;
+  }
   return (
     <main>
-      <h2>{section}</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      {heading}
+      {content}
     </main>
   );
 }
