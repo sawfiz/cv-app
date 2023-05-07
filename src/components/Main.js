@@ -1,5 +1,6 @@
 import React from 'react';
 import PersonalInfo from './PersonalInfo';
+import Experiences from './Experiences';
 import '../styles/Main.css'
 
 function Main({ cv, section, updateCV }) {
@@ -18,6 +19,11 @@ function Main({ cv, section, updateCV }) {
 
       case 'Personal Info':
         content = <PersonalInfo cv={cv} updateCV={updateCV} />
+        break;
+
+      case 'Experience':
+        content = <Experiences cv={cv} updateCV={updateCV} />
+        break;
 
     default:
       break;
