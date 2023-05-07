@@ -1,18 +1,23 @@
+
+
 * {
-  border: 1px solid red;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid red; */
   box-sizing: border-box;
 }
 
 body {
-  border: 1px solid green;
+  /* border: 1px solid green; */
+  background-color: #ccc;
 }
 
 .App {
   height: 100vh;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: grid;
   grid-template-columns: 200px auto;
-  grid-template-rows: 5rem auto 2rem;
+  grid-template-rows: 5rem auto 1.2rem;
   grid-template-areas:
     "header header"
     "sidebar main"
@@ -21,6 +26,8 @@ body {
 
 .header {
   grid-area: header;
+  color: white;
+  background-color: #333;
 }
 
 .sidebar {
@@ -33,4 +40,7 @@ body {
 
 .footer {
   grid-area: footer;
+  color: white;
+  background-color: #333;
+  font-size: 0.8rem;
 }

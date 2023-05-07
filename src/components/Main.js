@@ -1,5 +1,6 @@
 import React from 'react';
 import PersonalInfo from './PersonalInfo';
+import '../styles/Main.css'
 
 function Main({ cv, section, updateCV }) {
   let heading = <h2>{section}</h2>;

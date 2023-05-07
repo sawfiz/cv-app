@@ -7,7 +7,7 @@ function Footer() {
     <footer className='footer copyright'>
       <p>
         Copyright © 2023 sawfiz {' '}
-        <a href="https://github.com/sawfiz" target="_blank" rel="noreferrer">
+        <a className='github' href="https://github.com/sawfiz" target="_blank" rel="noreferrer">
           <FaGithub />
         </a>
       </p>

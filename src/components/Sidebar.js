@@ -6,14 +6,14 @@ function Sidebar({section, changeSection, generateCV}) {
     <aside>
       <h3>Sections</h3>
       <ul>
-        <li onClick={() => changeSection('Introduction')}>Introduction</li>
-        <li onClick={() => changeSection('Personal Info')}>Personal Info</li>
-        <li onClick={() => changeSection('Experience')}>Experience</li>
-        <li onClick={() => changeSection('Education')}>Education</li>
-        <li onClick={() => changeSection('Interests')}>Interests</li>
+        <li className='section' onClick={() => changeSection('Introduction')}>Introduction</li>
+        <li className='section' onClick={() => changeSection('Personal Info')}>Personal Info</li>
+        <li className='section' onClick={() => changeSection('Experience')}>Experience</li>
+        <li className='section' onClick={() => changeSection('Education')}>Education</li>
+        <li className='section' onClick={() => changeSection('Interests')}>Interests</li>
       </ul>
       <div className="button-container">
-        <button onClick={generateCV}>Generate CV</button>
+        <button className='generate-btn' onClick={generateCV}>Generate CV</button>
       </div>
     </aside>
   );

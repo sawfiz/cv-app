@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import TextInput from './inputs/TextInput';
+import '../styles/Form.css';
 
 export default function PersonalInfo({ cv, updateCV }) {
-
   // ^ The following does not work
-  // You are essentially setting state in your component during render which you should 
-  // never do. 
-  // When you call `setState(…)` you are telling your component to update and re-render. 
+  // You are essentially setting state in your component during render which you should
+  // never do.
+  // When you call `setState(…)` you are telling your component to update and re-render.
   // And every time it re-renders it makes that `setState` call, causing it to infinitely loop.
   // const [info, setInfo] = useState({ firstName: '', lastName: '' });
   // if (cv.personalInfo) {
@@ -35,8 +36,11 @@ export default function PersonalInfo({ cv, updateCV }) {
   // undefined || '' = ''
   // 'hello' || '' = 'hello'
   const [info, setInfo] = useState({
-    firstName: cv.personalInfo?.firstName || '',
-    lastName: cv.personalInfo?.lastName || '',
+    'First Name': cv.personalInfo?.['First Name'] || '',
+    'Last Name': cv.personalInfo?.['Last Name'] || '',
+    Address: cv.personalInfo?.Address || '',
+    Phone: cv.personalInfo?.Phone || '',
+    Email: cv.personalInfo?.Email || '',
   });
 
   function handleChange(e, attr) {
@@ -52,22 +56,46 @@ export default function PersonalInfo({ cv, updateCV }) {
     <div>
       <form onSubmit={handleSubmit}>
         <ul>
-          <li>
-            <label>First Name</label>
+          <TextInput
+            fieldName="First Name"
+            data={info['First Name']}
+            handleChange={handleChange}
+          />
+          <TextInput
+            fieldName="Last Name"
+            data={info['Last Name']}
+            handleChange={handleChange}
+          />
+          <TextInput
+            fieldName="Address"
+            data={info.Address}
+            handleChange={handleChange}
+          />
+
+          <li className="row">
+            <label>Phone</label>
             <input
-              value={info.firstName}
-              onChange={(e) => handleChange(e, 'firstName')}
+              type="tel"
+              value={info.Phone}
+              onChange={(e) => handleChange(e, 'Phone')}
             ></input>
           </li>
-          <li>
-            <label>Last Name</label>
+
+          <li className="row">
+            <label>Email</label>
             <input
-              value={info.lastName}
-              onChange={(e) => handleChange(e, 'lastName')}
+              type="email"
+              value={info.Email}
+              onChange={(e) => handleChange(e, 'Email')}
             ></input>
           </li>
         </ul>
-        <button type="submit">Save</button>
+
+        <div className="save-btn-container">
+          <button className="save-btn" type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );
