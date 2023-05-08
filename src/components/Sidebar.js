@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Sidebar.css';
 
-function Sidebar({section, changeSection, generateCV}) {
+function Sidebar({section, changeSection, clearData, loadSampleData}) {
   return (
     <aside>
       <h3>Sections</h3>
@@ -14,6 +14,12 @@ function Sidebar({section, changeSection, generateCV}) {
       </ul>
       <div className="button-container">
         <button className='generate-btn' onClick={() => changeSection('Generated CV')}>Generate CV</button>
+      </div>
+      <div className="button-container">
+        <button className='generate-btn' onClick={clearData}>Clear data</button>
+      </div>
+      <div className="button-container">
+        <button className='generate-btn' onClick={loadSampleData}>Load sample data</button>
       </div>
     </aside>
   );

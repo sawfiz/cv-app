@@ -4,6 +4,8 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import { sampleData } from './components/sampleData';
+import { emptyCV } from './components/emptyCV';
 
 import './styles/App.css';
 
@@ -13,21 +15,27 @@ function App() {
   let cvData;
   if (savedData) {
     cvData = JSON.parse(savedData);
-  } 
+  }
 
-  const [cv, setCv] = useState(cvData || {});
+  const [cv, setCv] = useState(cvData || emptyCV);
 
-  const [section, setSection] = useState('Generated CV');
+  const [section, setSection] = useState('Introduction');
+
+  function clearData() {
+    setCv(emptyCV)
+    setSection('Introduction')
+  }
+
+  function loadSampleData() {
+    setCv(sampleData);
+    setSection('Generated CV')
+  }
 
   function updateCV(sectionName, contentObj) {
-    const newCV = { ...cv, [sectionName]: contentObj }
+    const newCV = { ...cv, [sectionName]: contentObj };
     setCv(newCV);
     // Do this because setCv() is aync
     localStorage.setItem('CV', JSON.stringify(newCV));
-  }
-
-  function generateCV() {
-    console.log('🚀 ~ file: App.js: ~ cv:', cv);
   }
 
   return (
@@ -36,7 +44,8 @@ function App() {
       <Sidebar
         section={section}
         changeSection={setSection}
-        generateCV={generateCV}
+        clearData={clearData}
+        loadSampleData={loadSampleData}
       />
       <Main cv={cv} section={section} updateCV={updateCV} />
       <Footer />
