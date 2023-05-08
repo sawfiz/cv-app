@@ -1,6 +1,6 @@
 import TextInput from './inputs/TextInput';
 
-export default function Experience({ job, updateExperiences, saveExperience }) {
+export default function Experience({ job, updateExperiences, deleteExperience }) {
 
   function updateExperience(e, attr) {
     updateExperiences(e, attr, job.id)
@@ -14,8 +14,7 @@ export default function Experience({ job, updateExperiences, saveExperience }) {
           <TextInput fieldName={'Company'} data={job.Company} handleChange={updateExperience} />
         </ul>
       </form>
-      <button onClick={saveExperience}>Save</button>
-      <button>Delete</button>
+      <button onClick={()=>deleteExperience(job.id)}>Delete</button>
     </div>
   );
 }
