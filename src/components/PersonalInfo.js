@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TextInput from './inputs/TextInput';
+import Input from './inputs/Input';
 import '../styles/Form.css';
 
 export default function PersonalInfo({ cv, updateCV }) {
@@ -56,39 +56,36 @@ export default function PersonalInfo({ cv, updateCV }) {
     <div>
       <form onSubmit={handleSubmit}>
         <ul>
-          <TextInput
+          <Input
+            type="text"
             fieldName="First Name"
             data={info['First Name']}
             handleChange={handleChange}
           />
-          <TextInput
+          <Input
+            type="text"
             fieldName="Last Name"
             data={info['Last Name']}
             handleChange={handleChange}
           />
-          <TextInput
+          <Input
+            type="text"
             fieldName="Address"
             data={info.Address}
             handleChange={handleChange}
           />
-
-          <li className="row">
-            <label>Phone</label>
-            <input
-              type="tel"
-              value={info.Phone}
-              onChange={(e) => handleChange(e, 'Phone')}
-            ></input>
-          </li>
-
-          <li className="row">
-            <label>Email</label>
-            <input
-              type="email"
-              value={info.Email}
-              onChange={(e) => handleChange(e, 'Email')}
-            ></input>
-          </li>
+          <Input
+            type="tel"
+            fieldName="Phone"
+            data={info.Phone}
+            handleChange={handleChange}
+            />
+          <Input
+            type="email"
+            fieldName="Email"
+            data={info.Email}
+            handleChange={handleChange}
+          />
         </ul>
 
         <div className="save-btn-container">

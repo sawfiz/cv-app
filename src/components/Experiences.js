@@ -30,6 +30,7 @@ export default function Experiences({ cv, updateCV }) {
       (experience) => experience.id !== id
     );
     setExperiences(updatedExperiences)
+    // Do this because setExperiences() is async
     updateCV('experiences', updatedExperiences);
   }
 

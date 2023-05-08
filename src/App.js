@@ -8,12 +8,22 @@ import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
-  const [cv, setCv] = useState({});
+  // Load data from local storage
+  const savedData = localStorage.getItem('CV');
+  let cvData;
+  if (savedData) {
+    cvData = JSON.parse(savedData);
+  } 
+
+  const [cv, setCv] = useState(cvData || {});
 
   const [section, setSection] = useState('Personal Info');
 
   function updateCV(sectionName, contentObj) {
-    setCv({ ...cv, [sectionName]: contentObj });
+    const newCV = { ...cv, [sectionName]: contentObj }
+    setCv(newCV);
+    // Do this because setCv() is aync
+    localStorage.setItem('CV', JSON.stringify(newCV));
   }
 
   function generateCV() {
