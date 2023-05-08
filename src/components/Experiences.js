@@ -1,18 +1,42 @@
 import { useState } from 'react';
-import uniqid from "uniqid";
+import uniqid from 'uniqid';
 import Experience from './Experience';
-import '../styles/Form.css'
+import '../styles/Form.css';
 
-export default function Experiences({cv, updateCV}) {
-  const [experiences, setExperiences] = useState(cv?.experiences || [])
+export default function Experiences({ cv, updateCV }) {
+  const [experiences, setExperiences] = useState(cv?.experiences || []);
 
   function addEmptyExperience() {
-    const newExperience = {id: uniqid(), Position:'a', Company:'b', }
-    setExperiences([...experiences, newExperience])
+    const newExperience = { id: uniqid(), Position: 'a', Company: 'b' };
+    setExperiences([...experiences, newExperience]);
   }
 
-  return <div>
-    {experiences.map(experience => <Experience key={experience.id} job={experience}/>)}
-    <button onClick={addEmptyExperience}>Add an experience</button>
-    </div>;
+  function updateExperiences(e, attr, id) {
+    const updatedExperiences = experiences.map(experience => {
+      if (experience.id === id) {
+        const job = {...experience, [attr]: e.target.value}
+        return job;
+      }
+      else return experience;
+    })
+    setExperiences(updatedExperiences)
+  }
+
+  function saveExperience() {
+    updateCV('experiences', experiences)
+  }
+
+  return (
+    <div>
+      {experiences.map((experience) => (
+        <Experience
+          key={experience.id}
+          job={experience}
+          updateExperiences={updateExperiences}
+          saveExperience = {saveExperience}
+        />
+      ))}
+      <button onClick={addEmptyExperience}>Add an experience</button>
+    </div>
+  );
 }
