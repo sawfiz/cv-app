@@ -13,7 +13,7 @@ function Sidebar({section, changeSection, generateCV}) {
         <li className='section' onClick={() => changeSection('Interests')}>Interests</li>
       </ul>
       <div className="button-container">
-        <button className='generate-btn' onClick={generateCV}>Generate CV</button>
+        <button className='generate-btn' onClick={() => changeSection('Generated CV')}>Generate CV</button>
       </div>
     </aside>
   );

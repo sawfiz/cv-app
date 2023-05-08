@@ -1,4 +1,5 @@
 import Input from './inputs/Input';
+import Textarea from './inputs/Textarea';
 
 export default function Experience({
   job,
@@ -42,6 +43,11 @@ export default function Experience({
             type="date"
             fieldName={'To'}
             data={job.To}
+            handleChange={updateExperience}
+          />
+          <Textarea
+            fieldName={'Responsibilities'}
+            data={job.Responsibilities}
             handleChange={updateExperience}
           />
         </ul>

@@ -7,9 +7,15 @@ export default function Educations({ cv, updateCV }) {
   const [educations, setEducations] = useState(cv?.educations || []);
 
   function addEmptyEducation() {
-    const newEducation = { id: uniqid()};
+    const newEducation = {
+      id: uniqid(),
+      Degree: '',
+      Major: '',
+      School: '',
+      From: '',
+      To: '',
+    };
     setEducations([...educations, newEducation]);
-    console.log("🚀 ~ file: Educations.js:13 ~ addEmptyEducation ~ educations :", educations)
   }
 
   function updateEducations(e, attr, id) {
@@ -17,7 +23,7 @@ export default function Educations({ cv, updateCV }) {
       if (education.id === id) {
         const learning = { ...education, [attr]: e.target.value };
         return learning;
-      } else return educations;
+      } else return education;
     });
     setEducations(updatedEducations);
   }
@@ -30,7 +36,7 @@ export default function Educations({ cv, updateCV }) {
     const updatedEducations = educations.filter(
       (education) => education.id !== id
     );
-    setEducations(updatedEducations)
+    setEducations(updatedEducations);
     // Do this because setExperiences() is async
     updateCV('educations', updatedEducations);
   }

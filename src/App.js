@@ -17,7 +17,7 @@ function App() {
 
   const [cv, setCv] = useState(cvData || {});
 
-  const [section, setSection] = useState('Personal Info');
+  const [section, setSection] = useState('Generated CV');
 
   function updateCV(sectionName, contentObj) {
     const newCV = { ...cv, [sectionName]: contentObj }

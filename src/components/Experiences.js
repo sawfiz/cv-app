@@ -7,7 +7,15 @@ export default function Experiences({ cv, updateCV }) {
   const [experiences, setExperiences] = useState(cv?.experiences || []);
 
   function addEmptyExperience() {
-    const newExperience = { id: uniqid()};
+    const newExperience = {
+      id: uniqid(),
+      Position: '',
+      Company: '',
+      Location: '',
+      From: '',
+      To: '',
+      Responsibilities: ''
+    };
     setExperiences([...experiences, newExperience]);
   }
 
@@ -29,7 +37,7 @@ export default function Experiences({ cv, updateCV }) {
     const updatedExperiences = experiences.filter(
       (experience) => experience.id !== id
     );
-    setExperiences(updatedExperiences)
+    setExperiences(updatedExperiences);
     // Do this because setExperiences() is async
     updateCV('experiences', updatedExperiences);
   }

@@ -39,6 +39,8 @@ export default function PersonalInfo({ cv, updateCV }) {
     'First Name': cv.personalInfo?.['First Name'] || '',
     'Last Name': cv.personalInfo?.['Last Name'] || '',
     Address: cv.personalInfo?.Address || '',
+    City: cv.personalInfo?.City || '',
+    'Postal Code': cv.personalInfo?.['Postal Code'] || '',
     Phone: cv.personalInfo?.Phone || '',
     Email: cv.personalInfo?.Email || '',
   });
@@ -72,6 +74,18 @@ export default function PersonalInfo({ cv, updateCV }) {
             type="text"
             fieldName="Address"
             data={info.Address}
+            handleChange={handleChange}
+          />
+          <Input
+            type="text"
+            fieldName="City"
+            data={info.City}
+            handleChange={handleChange}
+          />
+          <Input
+            type="text"
+            fieldName="Postal Code"
+            data={info["Postal Code"]}
             handleChange={handleChange}
           />
           <Input

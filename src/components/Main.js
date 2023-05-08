@@ -2,7 +2,8 @@ import React from 'react';
 import PersonalInfo from './PersonalInfo';
 import Experiences from './Experiences';
 import Educations from './Educations';
-import '../styles/Main.css'
+import Output from './Output';
+import '../styles/Main.css';
 
 function Main({ cv, section, updateCV }) {
   let heading = <h2>{section}</h2>;
@@ -18,17 +19,22 @@ function Main({ cv, section, updateCV }) {
       );
       break;
 
-      case 'Personal Info':
-        content = <PersonalInfo cv={cv} updateCV={updateCV} />
-        break;
+    case 'Personal Info':
+      content = <PersonalInfo cv={cv} updateCV={updateCV} />;
+      break;
 
-      case 'Experience':
-        content = <Experiences cv={cv} updateCV={updateCV} />
-        break;
+    case 'Experience':
+      content = <Experiences cv={cv} updateCV={updateCV} />;
+      break;
 
-      case 'Education':
-        content = <Educations cv={cv} updateCV={updateCV} />
-        break;
+    case 'Education':
+      content = <Educations cv={cv} updateCV={updateCV} />;
+      break;
+
+    case 'Generated CV':
+      heading = '';
+      content = <Output cv={cv} />;
+      break;
 
     default:
       break;
