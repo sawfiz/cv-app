@@ -7,7 +7,7 @@ export default function Experiences({ cv, updateCV }) {
   const [experiences, setExperiences] = useState(cv?.experiences || []);
 
   function addEmptyExperience() {
-    const newExperience = { id: uniqid(), Position: '', Company: '' };
+    const newExperience = { id: uniqid()};
     setExperiences([...experiences, newExperience]);
   }
 
