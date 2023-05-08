@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Input from './inputs/Input';
+import Textarea from './inputs/Textarea'
 import '../styles/Form.css';
 
 export default function PersonalInfo({ cv, updateCV }) {
@@ -43,6 +44,7 @@ export default function PersonalInfo({ cv, updateCV }) {
     'Postal Code': cv.personalInfo?.['Postal Code'] || '',
     Phone: cv.personalInfo?.Phone || '',
     Email: cv.personalInfo?.Email || '',
+    Description: cv.personalInfo?.Description || ''
   });
 
   function handleChange(e, attr) {
@@ -100,6 +102,12 @@ export default function PersonalInfo({ cv, updateCV }) {
             data={info.Email}
             handleChange={handleChange}
           />
+          <Textarea
+            fieldName={'Description'}
+            data={info.Description}
+            handleChange={handleChange}
+          />
+
         </ul>
 
         <div className="save-btn-container">

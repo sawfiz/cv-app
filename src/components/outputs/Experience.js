@@ -10,9 +10,7 @@ export default function Experience({ experience }) {
         <div className='date'>
           {fromDate.getFullYear()}-
           {fromDate.toLocaleString('en-US', { month: '2-digit' })}
-        {/* </div> */}
         {' '} ~ {' '} 
-        {/* <div> */}
           {toDate.getFullYear()}-
           {toDate.toLocaleString('en-US', { month: '2-digit' })}
         </div>

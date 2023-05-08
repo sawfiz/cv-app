@@ -18,6 +18,10 @@ export default function Header({ info }) {
         </div>
       </div>
       <hr></hr>
+      <div>
+        <div className='sub-heading'>Description</div>
+        <div className='description-text'>{info.Description}</div>
+      </div>
     </div>
   );
 }
