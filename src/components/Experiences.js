@@ -1,13 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import uniqid from 'uniqid';
 import Experience from './Experience';
 import '../styles/Form.css';
 
 export default function Experiences({ cv, updateCV }) {
   const [experiences, setExperiences] = useState(cv?.experiences || []);
-  useEffect(() => {
-    updateCV('experiences', experiences);
-  },[experiences]);
 
   function addEmptyExperience() {
     const newExperience = { id: uniqid(), Position: '', Company: '' };
@@ -24,12 +21,16 @@ export default function Experiences({ cv, updateCV }) {
     setExperiences(updatedExperiences);
   }
 
+  function saveExperiences() {
+    updateCV('experiences', experiences);
+  }
 
   function deleteExperience(id) {
     const updatedExperiences = experiences.filter(
       (experience) => experience.id !== id
     );
-    setExperiences(updatedExperiences);
+    setExperiences(updatedExperiences)
+    updateCV('experiences', updatedExperiences);
   }
 
   return (
@@ -39,6 +40,7 @@ export default function Experiences({ cv, updateCV }) {
           key={experience.id}
           job={experience}
           updateExperiences={updateExperiences}
+          saveExperiences={saveExperiences}
           deleteExperience={deleteExperience}
         />
       ))}

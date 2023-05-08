@@ -10,10 +10,6 @@ import './styles/App.css';
 function App() {
   const [cv, setCv] = useState({});
 
-  // const [cv, setCv] = useState({
-  //   personalInfo: { firstName: '', lastName: '' },
-  // });
-
   const [section, setSection] = useState('Personal Info');
 
   function updateCV(sectionName, contentObj) {
@@ -21,7 +17,7 @@ function App() {
   }
 
   function generateCV() {
-    console.log('🚀 ~ file: App.js:17 ~ updateCV ~ cv:', cv);
+    console.log('🚀 ~ file: App.js: ~ cv:', cv);
   }
 
   return (
